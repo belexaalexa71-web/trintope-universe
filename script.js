@@ -1,22 +1,44 @@
 const body = document.body;
 const opening = document.getElementById('opening');
 const openingVideo = document.getElementById('openingVideo');
-const openingCard = document.getElementById('openingCard');
-const enterWorld = document.getElementById('enterWorld');
+const heroVideo = document.getElementById('heroVideo');
 const skipOpening = document.getElementById('skipOpening');
 const replay = document.getElementById('replay');
 const progress = document.getElementById('progress');
 
-function showOpeningCard(){ openingCard.classList.add('show'); }
-function unlockVideos(){ document.querySelectorAll('video').forEach(v => { v.muted = v.autoplay || v.classList.contains('hero-video') ? true : v.muted; v.playsInline = true; v.play?.().catch(()=>{}); }); }
-function closeOpening(){ opening.classList.add('hidden'); body.classList.remove('is-locked'); unlockVideos(); setTimeout(()=>document.querySelector('#home')?.scrollIntoView({behavior:'smooth'}),120); }
-function playOpening(){ opening.classList.remove('hidden'); openingCard.classList.remove('show'); body.classList.add('is-locked'); openingVideo.muted=true; openingVideo.playsInline=true; openingVideo.currentTime=0; const p=openingVideo.play(); if(p?.catch) p.catch(showOpeningCard); setTimeout(showOpeningCard,5600); }
+function unlockVideos(){
+  document.querySelectorAll('video').forEach(v => {
+    v.muted = v.autoplay || v.classList.contains('hero-video') ? true : v.muted;
+    v.playsInline = true;
+    v.play?.().catch(()=>{});
+  });
+}
+
+function enterSite(){
+  opening.classList.add('hidden');
+  body.classList.remove('is-locked');
+  heroVideo.currentTime = 0;
+  heroVideo.play?.().catch(()=>{});
+}
+
+function playOpening(){
+  opening.classList.remove('hidden');
+  body.classList.add('is-locked');
+  openingVideo.muted = true;
+  openingVideo.playsInline = true;
+  openingVideo.currentTime = 0;
+  const p = openingVideo.play();
+  if (p?.catch) p.catch(enterSite);
+}
+
 window.addEventListener('load', playOpening);
-openingVideo.addEventListener('ended', showOpeningCard);
-openingVideo.addEventListener('error', showOpeningCard);
-enterWorld.addEventListener('click', closeOpening);
-skipOpening.addEventListener('click', showOpeningCard);
-replay.addEventListener('click', playOpening);
+openingVideo.addEventListener('ended', enterSite);
+openingVideo.addEventListener('error', enterSite);
+skipOpening.addEventListener('click', enterSite);
+replay.addEventListener('click', () => {
+  window.scrollTo({top:0, behavior:'smooth'});
+  setTimeout(playOpening, 180);
+});
 document.addEventListener('pointerdown', unlockVideos, {once:true});
 
 const io = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold:.14});

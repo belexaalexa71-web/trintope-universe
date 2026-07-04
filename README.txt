@@ -1,11 +1,12 @@
-Trintope Universe Website v1.3 — Launch Polished Edition
+Trintope Universe Website v1.4 — Cinematic Launch Edition
 
 How to use:
-1. Unzip the archive.
-2. Open index.html in a browser.
-3. To publish: upload the whole folder to Netlify, Vercel, GitHub Pages, or any static hosting.
+1. Open index.html in a browser.
+2. Upload the whole folder to GitHub/Cloudflare Pages.
 
-Important:
-- Keep the assets folder next to index.html.
-- Donation button is a placeholder until you add a real support link.
+Update notes:
+- First cinematic opening: assets/videos/opening-long.mp4
+- After the opening ends, the site unlocks automatically.
+- The Home section begins with the second cinematic: assets/videos/hero-second-intro.mp4
+- Users can scroll and use the site immediately while the second cinematic plays.
 - Official X is set to: https://x.com/AndrejK40133234

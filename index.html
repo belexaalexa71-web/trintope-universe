@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Trintope Universe — Chapter I</title>
-  <meta name="description" content="Official Trintope Universe portal. Chapter I — The Ocean Kingdom." />
+  <title>Trintope Universe — Chapter I: The Ocean Kingdom</title>
+  <meta name="description" content="Enter Trintope Universe. Watch the cinematic opening, explore Chapter I — The Ocean Kingdom, and become part of the journey." />
   <meta name="theme-color" content="#020812" />
-  <meta property="og:title" content="Trintope Universe — Chapter I" />
-  <meta property="og:description" content="Begin the journey through the Ocean Kingdom." />
+  <meta property="og:title" content="Trintope Universe — Chapter I: The Ocean Kingdom" />
+  <meta property="og:description" content="The Ocean Kingdom has awakened. Enter the official Trintope Universe portal." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/images/home-main-poster.jpg" />
-  <link rel="preload" as="video" href="assets/videos/opening.mp4" type="video/mp4" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Trintope Universe — Chapter I: The Ocean Kingdom" />
+  <meta name="twitter:description" content="The Ocean Kingdom has awakened. Enter the official Trintope Universe portal." />
+  <meta name="twitter:image" content="assets/images/home-main-poster.jpg" />
+  <link rel="preload" as="video" href="assets/videos/opening-long.mp4" type="video/mp4" />
+  <link rel="preload" as="video" href="assets/videos/hero-second-intro.mp4" type="video/mp4" />
   <link rel="preload" as="image" href="assets/images/home-main-poster.jpg" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -18,17 +23,12 @@
   <div class="progress" id="progress" aria-hidden="true"></div>
 
   <section class="opening" id="opening" aria-label="Trintope opening cinematic">
-    <video id="openingVideo" class="opening-video" autoplay muted playsinline preload="auto" poster="assets/images/home-main-poster.jpg">
-      <source src="assets/videos/opening.mp4" type="video/mp4" />
+    <video id="openingVideo" class="opening-video" autoplay muted playsinline preload="auto" poster="assets/images/opening-long-poster.jpg">
+      <source src="assets/videos/opening-long.mp4" type="video/mp4" />
     </video>
     <div class="vignette" aria-hidden="true"></div>
-    <button class="skip" id="skipOpening" type="button">Skip</button>
-    <div class="opening-card" id="openingCard">
-      <span>Chapter I</span>
-      <h1>TRINTOPE</h1>
-      <p>The Journey Begins</p>
-      <button class="btn primary" id="enterWorld" type="button">Begin the Journey</button>
-    </div>
+    <button class="skip" id="skipOpening" type="button">Skip Intro</button>
+    <div class="opening-note" aria-hidden="true">Official Opening</div>
   </section>
 
   <header class="site-header" id="siteHeader">
@@ -46,8 +46,11 @@
 
   <main>
     <section class="hero" id="home" aria-label="Trintope home screen">
-      <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/home-main-poster.jpg">
-        <source src="assets/videos/home-main-zoomed.mp4" type="video/mp4" />
+      <video class="hero-bg-video" autoplay muted playsinline loop preload="auto" poster="assets/images/hero-second-poster.jpg" aria-hidden="true">
+        <source src="assets/videos/hero-second-intro.mp4" type="video/mp4" />
+      </video>
+      <video id="heroVideo" class="hero-video" autoplay muted playsinline loop preload="auto" poster="assets/images/hero-second-poster.jpg">
+        <source src="assets/videos/hero-second-intro.mp4" type="video/mp4" />
       </video>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-hotspots" aria-label="Home video buttons">
@@ -159,7 +162,8 @@
         <h2>Opening Materials</h2>
       </div>
       <div class="media-grid single reveal">
-        <article><video controls playsinline preload="metadata" poster="assets/images/home-main-poster.jpg"><source src="assets/videos/opening.mp4" type="video/mp4" /></video><h3>Opening Cinematic</h3></article>
+        <article><video controls playsinline preload="metadata" poster="assets/images/opening-long-poster.jpg"><source src="assets/videos/opening-long.mp4" type="video/mp4" /></video><h3>Official Opening Cinematic</h3></article>
+        <article><video controls playsinline preload="metadata" poster="assets/images/hero-second-poster.jpg"><source src="assets/videos/hero-second-intro.mp4" type="video/mp4" /></video><h3>Home Reveal</h3></article>
       </div>
     </section>
 
@@ -247,7 +251,7 @@
 
   <footer class="footer">
     <strong>TRINTOPE</strong>
-    <span>Website v1.3 Launch Edition</span>
+    <span>Website v1.4 Cinematic Launch Edition</span>
     <span>© 2026 Trintope Universe</span>
   </footer>
 
